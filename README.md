@@ -1,12 +1,20 @@
-# Identify single-cell variance eQTL in OneK1K cohort
+![image](https://github.com/powellgenomicslab/sc-veQTL/assets/8247682/84a9cf0f-6a51-4d7e-888b-a38174813c71)# Identify single-cell variance eQTL in OneK1K cohort
 
 This repository contains the analysis code pipeline to identify single-cell variance eQTL (sc-veQTL) as part of the manuscript "**Genetic variants associated with within-individual gene expression dispersion at single-cell resolution reveal new mechanisms of genome regulation**"
 
-Scripts are listed by the order in the methods section of the manuscript:
+In this study, we identified a novel genetic regulation mechanism, where genetic variants affect the variance and/or dispersion of the intra-individual gene expression independent from mean effects. This list of genes (i.e. dGene) is enriched in the immune response and interspecies interaction and their cellular dispersion levels are associated with auto-immune disease risk.
 
+
+Scripts are listed by the order in the methods section of the manuscript:
+1. The collection and QC of the OneK1K cohort
+2. Generate intra-individual mean, variance, dispersion matrix for the gene expression
+3. The xQTL association
+4. Functional annotation and gene sets enrichment
+5. The G x G and G x E interaction test
+6. Integration of dGene with auto-immune disease risk
 
 # Citation
 
-Angli Xue, Seyhan Yazar, José Alquicira-Hernández, Anna S E Cuomo, Joseph E. Powell. Genetic variants associated with within-individual gene expression dispersion at single-cell resolution reveal new mechanisms of genome regulation. _In Preparation_. 2023. [[Full text](Link]
+Angli Xue, Seyhan Yazar, José Alquicira-Hernández, Anna S E Cuomo, Joseph E. Powell. Genetic variants associated with within-individual gene expression dispersion at single-cell resolution reveal new mechanisms of genome regulation. _Preprint coming soon_. 2023. [[Full text](Link]
 
 For questions, please email us at Angli Xue (a.xue@garvan.org.au) or Joseph E. Powell (j.powell@garvan.org.au)
