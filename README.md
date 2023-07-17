@@ -1,4 +1,4 @@
-![image](https://github.com/powellgenomicslab/sc-veQTL/assets/8247682/84a9cf0f-6a51-4d7e-888b-a38174813c71)# Identify single-cell variance eQTL in OneK1K cohort
+# Identify single-cell variance eQTL in OneK1K cohort
 
 This repository contains the analysis code pipeline to identify single-cell variance eQTL (sc-veQTL) as part of the manuscript "**Genetic variants associated with within-individual gene expression dispersion at single-cell resolution reveal new mechanisms of genome regulation**"
 
