@@ -1,0 +1,29 @@
+## SGE SETTINGS
+#$ -cwd
+#$ -S /bin/bash
+#$ -q short.q
+#$ -pe smp 1
+#$ -r yes
+#$ -l mem_requested=30G
+#$ -N generate_expression_file_CD4_NC
+#$ -o stdout_generate_expression_file_CD4_NC
+#$ -e stderr_generate_expression_file_CD4_NC
+#$ -t 1-22
+
+cd $SGE_O_WORKDIR
+
+i=${SGE_TASK_ID};
+
+Rscript="/share/ScratchGeneral/angxue/software/miniconda3/envs/r_env/bin/Rscript"
+
+mkdir -p CD4_NC
+
+# touch ./CD4_NC/chr${i}_generate_expression_file_CD4_NC.log
+# > ./CD4_NC/chr${i}_generate_expression_file_CD4_NC.log
+
+$Rscript --vanilla generate_expression_file.R ${i} CD4_NC 
+
+
+
+
+
