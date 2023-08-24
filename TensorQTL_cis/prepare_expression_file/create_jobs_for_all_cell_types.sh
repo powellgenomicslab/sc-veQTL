@@ -11,7 +11,7 @@ rm -r -f ./${trait[k]}
 
 mkdir -p ./${trait[k]}
 
-sed 's/generate_expression_file/generate_expression_file_'${trait[k]}'/g' generate_expression_file.qsub > ./${trait[k]}/generate_expression_file.qsub
+sed 's/generate_expression_file/generate_expression_file_'${trait[k]}'/g' generate_expression_file.qsub.sh > ./${trait[k]}/generate_expression_file.qsub.sh
 
 cd ./${trait[k]}/
 
@@ -23,9 +23,9 @@ echo ${new_names[i]}
 # rm -r -f ./${new_names[i]}
 # mv  ./${new_names[i]} ./old_sct_counts_untransformed
 
-sed 's/ct_name/'${new_names[i]}'/g' generate_expression_file.qsub > generate_expression_file_${new_names[i]}.qsub
+sed 's/ct_name/'${new_names[i]}'/g' generate_expression_file.qsub.sh > generate_expression_file_${new_names[i]}.qsub.sh
 
-qsub generate_expression_file_${new_names[i]}.qsub
+qsub generate_expression_file_${new_names[i]}.qsub.sh
 
 done
 

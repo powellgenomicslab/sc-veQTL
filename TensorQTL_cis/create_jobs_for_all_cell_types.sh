@@ -17,10 +17,10 @@ for k in {0..13}
   # rm -r -f ./${new_names[k]}_cell_5_${estimate[j]}_mx/*
 
   # Generate job scripts
-  sed 's/ct_name/'${new_names[k]}'/g' eQTL_OneK1K_cell_5_${estimate[j]}_mx.qsub > eQTL_OneK1K_cell_5_${estimate[j]}_mx_${new_names[k]}.qsub 
+  sed 's/ct_name/'${new_names[k]}'/g' eQTL_OneK1K_cell_5_${estimate[j]}_mx.qsub.sh > eQTL_OneK1K_cell_5_${estimate[j]}_mx_${new_names[k]}.qsub.sh 
 
   # Submit
-  qsub eQTL_OneK1K_cell_5_${estimate[j]}_mx_${new_names[k]}.qsub
+  qsub eQTL_OneK1K_cell_5_${estimate[j]}_mx_${new_names[k]}.qsub.sh
 
   done
 
