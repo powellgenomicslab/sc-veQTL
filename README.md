@@ -18,6 +18,6 @@ The repository will be updated soon after peer review.
 
 # Citation
 
-Angli Xue, Seyhan Yazar, José Alquicira-Hernández, Anna S E Cuomo, Anne Senabouth, Gracie Gordon, Pooja Kathail, Chun Jimme Ye, Alex W. Hewitt, Joseph E. Powell. Genetic variants associated with cell-type-specific intra-individual gene expression variability reveal new mechanisms of genome regulation. _Under Review_. 2024.
+Angli Xue, Seyhan Yazar, José Alquicira-Hernández, Anna S E Cuomo, Anne Senabouth, Gracie Gordon, Pooja Kathail, Chun Jimme Ye, Alex W. Hewitt, Joseph E. Powell. Genetic variants associated with cell-type-specific intra-individual gene expression variability reveal new mechanisms of genome regulation. _Under Review_. 2024. ([Preprint](https://www.biorxiv.org/content/10.1101/2024.05.05.592598v1))
 
 For questions, please email us at Angli Xue (a.xue@garvan.org.au) or Joseph E. Powell (j.powell@garvan.org.au)
