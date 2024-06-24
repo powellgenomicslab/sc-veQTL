@@ -20,6 +20,7 @@ ct_name <- as.character(new_names[as.numeric(args[1])])
 print(ct_name)
 
 ## Read the data ##
+# The input of “*_sct_counts.RDS” is the exact output from line 92 in https://github.com/powellgenomicslab/PEER_factors/blob/main/1-Extract_datasets/Extract_RDS_all_cell_types.R
 info <- readRDS(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/", ct_name, "_meta_data.RDS"))
 dim(info)
 
