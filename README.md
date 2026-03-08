@@ -18,9 +18,14 @@ The repository will be updated soon after peer review.
 
 # Data Availability
 
-The updated OneK1K Seurat object which contains both raw and SCTransformed counts can be downloaded from [this link](https://drive.google.com/drive/folders/1qAF27FJc40ufTi4spG0WMbpA9_MY0gN_?usp=sharing).
+The following datasets can be downloaded from [Zenodo](https://zenodo.org/records/18870747).
+1. Updated OneK1K Seurat object which contains both raw and SCTransformed counts (980 donors and 14 cell types)
+2. Imputed and QCed genotype in PLINK format
+3. Covariates for QTL analysis (sex, age, genotype PCs, and expression PEER factors)
+4. Donor x gene matrix for pseudobulk mean, variance, and dispersion
+5. Summary statistics for eQTL, veQTL, and deQTL (both raw and top SNP only)
 
-For covariates used in the QTL association analysis, please email Angli Xue (a.xue@garvan.org.au).
+To request additional datasets, please email Angli Xue (a.xue@garvan.org.au).
 
 
 # Citation
