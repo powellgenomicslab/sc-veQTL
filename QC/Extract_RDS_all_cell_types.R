@@ -12,7 +12,8 @@ library(Seurat)
 library(sctransform)
 
 print("Reading in cell_type.RDS...")
-df <- readRDS ("/directflow/SCCGGroupShare/projects/SeyhanYazar/onek1k/cell_specific_eQTL_analysis/cell_type.RDS")
+base_data_dir <- "/directflow/SCCGGroupShare/projects/SeyhanYazar/onek1k/cell_specific_eQTL_analysis"
+df <- readRDS(file.path(base_data_dir, "cell_type.RDS"))
 
 df
 df$individual[which(df$individual=="870_871" & df$latent=="b1")] <- "966_967"
@@ -106,5 +107,3 @@ saveRDS(raw.data, paste0(ct_name,"_raw_counts.RDS"))
 print("Script ended!")
 
 ## END
-
-
