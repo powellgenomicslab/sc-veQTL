@@ -24,10 +24,13 @@ os.makedirs(f"./{ct_name}_cell_5_variance_mx", exist_ok = True)
 os.chdir(f"./{ct_name}_cell_5_variance_mx")
 
 # define paths to data
-plink_prefix_path = f"/directflow/SCCGGroupShare/projects/angxue/data/onek1k/genotype/plink_chr{chr_num}"
-expression_bed = f"/share/ScratchGeneral/angxue/proj/vQTL/TensorQTL/expression/cell_5_variance_mx/{ct_name}/OneK1K_980_samples_{ct_name}_chr{chr_num}.bed.gz"
-covariates_file = f"/share/ScratchGeneral/angxue/proj/vQTL/MatrixQTL/round2_more_covar/covariates/cell_5_mean_mx/{ct_name}_covar_peer_factors_PF10.txt"
-freq_file = f"/directflow/SCCGGroupShare/projects/angxue/data/onek1k/genotype/plink_chr{chr_num}.frqx"
+genotype_dir = "/directflow/SCCGGroupShare/projects/angxue/data/onek1k/genotype"
+expression_dir = "/share/ScratchGeneral/angxue/proj/vQTL/TensorQTL/expression/cell_5_variance_mx"
+covariates_dir = "/share/ScratchGeneral/angxue/proj/vQTL/MatrixQTL/round2_more_covar/covariates/cell_5_mean_mx"
+plink_prefix_path = f"{genotype_dir}/plink_chr{chr_num}"
+expression_bed = f"{expression_dir}/{ct_name}/OneK1K_980_samples_{ct_name}_chr{chr_num}.bed.gz"
+covariates_file = f"{covariates_dir}/{ct_name}_covar_peer_factors_PF10.txt"
+freq_file = f"{genotype_dir}/plink_chr{chr_num}.frqx"
 prefix = f"OneK1K_{ct_name}"
 
 # load phenotypes and covariates

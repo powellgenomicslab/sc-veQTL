@@ -13,7 +13,9 @@ library("dplyr")
 
 source("plot_functions.R")
 
-sds = readRDS("/share/ScratchGeneral/angxue/proj/vQTL/pseudotime/results/2022-08-31_b_cells_phate/sds_500hvg_10pcs_0.1_fixed.RDS")
+results_dir <- "/share/ScratchGeneral/angxue/proj/vQTL/pseudotime/results/2022-08-31_b_cells_phate"
+
+sds = readRDS(file.path(results_dir, "sds_500hvg_10pcs_0.1_fixed.RDS"))
 i <- 1
 curve_1 <- slingCurves(sds)[[i]]
 pt <- curve_1$lambda %>% as.data.frame() %>% set_names("pt")

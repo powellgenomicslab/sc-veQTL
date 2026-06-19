@@ -18,17 +18,18 @@ cell <- c("TCL1A+FCER2+Bcell", "TCL1A-FCER2-Bcell", "CD4+KLRB1-Tcell", "CD4+KLRB
     "Erythrocytes","Platelets")
 
 ct_name = as.character(ct)
+data_dir <- "/directflow/SCCGGroupShare/projects/angxue/data/onek1k"
 
 ## Read moment estimators input as priori
 # priori=read.table(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/SCTv2/across_ind_estimates/NB_MOM_estimates_aross_ind_",ct_name,".txt"),header=T)
 
-info=readRDS(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/",ct_name,"_meta_data.RDS"))
+info=readRDS(file.path(data_dir, paste0(ct_name,"_meta_data.RDS")))
 # dim(info)
 
 ## Read count matrix
 message("Read count matrix")
 
-sct=readRDS(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/",ct_name,"_sct_counts.RDS"))
+sct=readRDS(file.path(data_dir, paste0(ct_name,"_sct_counts.RDS")))
 # Check data structure
 str(sct)
 
@@ -54,7 +55,7 @@ res$gene = rownames(ok1k@assays$SCT@counts)
 
 message("Estimate the within-individual dispersion")
 
-ss=subset(x = ok1k, subset = individual == ind[kk])
+ss=subset(x = ok1k, subset = individual == ind[k])
 tmp=ss@assays$SCT@counts
 tmp2=as.data.frame(tmp)
 

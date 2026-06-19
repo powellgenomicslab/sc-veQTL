@@ -10,7 +10,10 @@ args <- commandArgs(trailingOnly = TRUE)
 print(paste0("Read in argument, ", args))
 
 library(MASS)
-setwd("/share/ScratchGeneral/angxue/proj/vQTL/mean_var_matrix/cell_5/")
+output_dir <- "/share/ScratchGeneral/angxue/proj/vQTL/mean_var_matrix/cell_5"
+data_dir <- "/directflow/SCCGGroupShare/projects/angxue/data/onek1k"
+covariates_base_dir <- "/share/ScratchGeneral/seyyaz/onek1k/cell_specific_eQTL_analysis_October19"
+setwd(output_dir)
 
 # Cell type names
 new_names <- c("B_IN", "B_MEM", "CD4_NC", "CD4_ET", "CD4_SOX4", "CD8_NC", "CD8_ET", "CD8_S100B", "DC", "Mono_C", "Mono_NC", "NK_R", "NK", "Plasma", "Erythrocytes", "Platelets")
@@ -21,7 +24,7 @@ print(ct_name)
 
 ## Read the data ##
 # The input of “*_sct_counts.RDS” is the exact output from line 92 in https://github.com/powellgenomicslab/PEER_factors/blob/main/1-Extract_datasets/Extract_RDS_all_cell_types.R
-info <- readRDS(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/", ct_name, "_meta_data.RDS"))
+info <- readRDS(file.path(data_dir, paste0(ct_name, "_meta_data.RDS")))
 dim(info)
 
 ## Number of cells and individuals
@@ -34,7 +37,7 @@ print(summary(as.numeric(table(as.character(info$individual)))))
 print("Start to read in sct counts...")
 
 # The input of “*_sct_counts.RDS” is the exact output from line 78 in https://github.com/powellgenomicslab/PEER_factors/blob/main/1-Extract_datasets/Extract_RDS_all_cell_types.R
-sct <- readRDS(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/", ct_name, "_sct_counts.RDS"))
+sct <- readRDS(file.path(data_dir, paste0(ct_name, "_sct_counts.RDS")))
 # Check data structure
 str(sct)
 
@@ -122,7 +125,7 @@ for (i in 1:length(ind)) {
 write.table(as.data.frame(gene), paste0(ct_name, "_cells_gene_list.txt"), row.names = FALSE, col.names = TRUE, quote = FALSE)
 
 # Match the column with covariates file
-co <- read.table(paste0("/share/ScratchGeneral/seyyaz/onek1k/cell_specific_eQTL_analysis_October19/", cell[which(new_names == ct_name)], "/step1/covariates_chr1.txt"), header = TRUE, check.names = FALSE)
+co <- read.table(file.path(covariates_base_dir, cell[which(new_names == ct_name)], "step1", "covariates_chr1.txt"), header = TRUE, check.names = FALSE)
 all(colnames(var_mx) %in% colnames(co)[-1])
 
 extra <- colnames(co)[!colnames(co) %in% colnames(var_mx)]
