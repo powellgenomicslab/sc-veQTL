@@ -11,7 +11,9 @@ new_names <- c("B_IN", "B_MEM", "CD4_NC", "CD4_ET", "CD4_SOX4", "CD8_NC", "CD8_E
 
 j <- as.numeric(args[1])
 
-a1=fread(paste0("/share/ScratchGeneral/angxue/proj/vQTL/mean_var_matrix/cell_5/",new_names[j],"_cells_var_mx.txt"),header=T)
+mean_var_dir <- "/share/ScratchGeneral/angxue/proj/vQTL/mean_var_matrix/cell_5"
+
+a1=fread(file.path(mean_var_dir, paste0(new_names[j],"_cells_var_mx.txt")),header=T)
 a1=as.data.frame(a1)
 # Remove those individuals with NAs
 ori_name=colnames(a1)

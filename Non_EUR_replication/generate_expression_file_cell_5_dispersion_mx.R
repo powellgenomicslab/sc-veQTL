@@ -18,8 +18,11 @@ ct_name <- args[2]
 
 new_names <- c("B", "cDC", "cM", "ncM", "NK", "PB", "pDC", "Progen", "Prolif", "T4", "T8")
 
+perez_data_dir <- "/directflow/SCCGGroupShare/projects/angxue/data/Perez_et_al_SLE/dispersion_est"
+gene_location_dir <- "/directflow/SCCGGroupShare/projects/angxue/data/onek1k/Gene_Location_Files"
+
 # Read pseudo-bulk matrix
-mx = fread(paste0("/directflow/SCCGGroupShare/projects/angxue/data/Perez_et_al_SLE/dispersion_est/",ct_name,"_cells_mean_mx.txt"), header = T)
+mx = fread(file.path(perez_data_dir, paste0(ct_name,"_cells_mean_mx.txt")), header = T)
 mx = as.data.frame(mx)
 # Remove individuals with all NAs
 if(sum(is.na(mx[1, ]))>0){
@@ -29,7 +32,7 @@ mx = mx[ ,-index]
 pi0 = rowSums(mx==0)/ncol(mx)
 
 # Read dispersion matrix
-dx = fread(paste0("/directflow/SCCGGroupShare/projects/angxue/data/Perez_et_al_SLE/dispersion_est/",ct_name,"_cells_dispersion_mx.txt"), header = T)
+dx = fread(file.path(perez_data_dir, paste0(ct_name,"_cells_dispersion_mx.txt")), header = T)
 dx = as.data.frame(dx)
 gene = dx$gene
 dx = dx[,-1]
@@ -50,7 +53,7 @@ gene = as.data.frame(gene[which(pi0 <= 0.9),])
 
 # Add location info
 
-loc = fread(paste0("/directflow/SCCGGroupShare/projects/angxue/data/onek1k/Gene_Location_Files/geneloc_chr",chrNumber,".tsv"), header = T)
+loc = fread(file.path(gene_location_dir, paste0("geneloc_chr",chrNumber,".tsv")), header = T)
 loc = as.data.frame(loc)
 
 mx = cbind(gene, mx)
